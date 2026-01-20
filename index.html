@@ -4,158 +4,387 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>$NEW26 — 2026 is the New 2016</title>
-  <meta name="description" content="$NEW26 is a fun nostalgia meme coin on Solana. 2026 is the New 2016." />
+  <meta name="description" content="$NEW26 is a neon nostalgia meme coin. 2026 is the New 2016." />
 
   <style>
     :root{
-      --bg:#0b0b12;
-      --text:#f2f2ff;
-      --muted:#b7b7d6;
-      --line:rgba(255,255,255,.12);
-      --glow: 0 0 24px rgba(130,90,255,.35);
-      --radius:18px;
+      --bg0:#05060b;
+      --bg1:#0b0b14;
+      --ink:#f6f7ff;
+      --muted:#b7b9e6;
+
+      --pink:#ff3bd4;
+      --cyan:#22f6ff;
+      --violet:#7a4dff;
+      --gold:#ffd24a;
+
+      --card: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.12);
+      --glow: 0 0 28px rgba(122,77,255,.42), 0 0 18px rgba(34,246,255,.18);
+      --radius: 18px;
     }
+
     *{box-sizing:border-box}
     html,body{
-      margin:0;padding:0;
+      margin:0; padding:0;
+      color:var(--ink);
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
       background:
-        radial-gradient(1000px 600px at 20% 10%, rgba(130,90,255,.25), transparent 60%),
-        radial-gradient(900px 600px at 80% 20%, rgba(0,255,200,.10), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        radial-gradient(1200px 700px at 20% 10%, rgba(122,77,255,.24), transparent 60%),
+        radial-gradient(1000px 650px at 80% 18%, rgba(34,246,255,.14), transparent 55%),
+        radial-gradient(900px 650px at 50% 80%, rgba(255,59,212,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px}
-    h1{font-size:42px;margin:10px 0}
-    h2{font-size:26px;margin:0 0 10px}
-    p{color:var(--muted);line-height:1.6}
-    .tiny{font-size:12px;color:rgba(255,255,255,.65)}
+    .wrap{max-width:1120px; margin:0 auto; padding:18px}
 
-    .top{
-      position:sticky; top:0;
+    header{
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(11,11,18,.65);
+      background: rgba(5,6,11,.65);
       border-bottom:1px solid var(--line);
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
     }
-    .brand{display:flex;align-items:center;gap:12px}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:12px 18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
     .logo{
-      width:44px;height:44px;border-radius:14px;
-      display:grid;place-items:center;
-      background:linear-gradient(135deg, rgba(130,90,255,.9), rgba(0,255,200,.45));
-      box-shadow:var(--glow);
-      font-weight:800;
+      width:44px; height:44px; border-radius:14px;
+      display:grid; place-items:center;
+      font-weight:900; letter-spacing:.5px;
+      background: linear-gradient(135deg, rgba(255,59,212,.95), rgba(34,246,255,.45));
+      box-shadow: var(--glow);
+      border:1px solid rgba(255,255,255,.12);
     }
+    .brandTitle{font-weight:900}
+    .brandSub{font-size:12px; color: rgba(255,255,255,.70)}
+
+    .nav{display:flex; gap:14px; flex-wrap:wrap}
+    .nav a{font-size:13px; color: rgba(255,255,255,.78)}
+    .nav a:hover{color:#fff}
 
     .btn{
       border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
       padding:10px 14px;
       border-radius:999px;
+      font-weight:800;
       display:inline-flex;
-      font-weight:700;
+      align-items:center;
+      gap:8px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, border-color .12s ease;
     }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22)}
     .btn.primary{
-      background:linear-gradient(135deg, rgba(130,90,255,.95), rgba(0,255,200,.35));
-      border-color:transparent;
-      box-shadow:var(--glow);
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(122,77,255,.95), rgba(34,246,255,.35));
+      box-shadow: var(--glow);
     }
 
     .hero{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:26px;
-      padding-top:26px;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      padding:26px 18px 8px;
+      align-items:center;
     }
-    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    @media (max-width: 950px){
+      .hero{grid-template-columns:1fr}
+    }
 
-    .coinMock{
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:18px;
+    h1{
+      margin:0 0 10px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.5px;
+      text-shadow: 0 0 18px rgba(122,77,255,.25);
     }
-    .coinFace{
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-size:17px;
+      line-height:1.6;
+      max-width: 60ch;
+    }
+
+    .badgeRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .badge{
+      font-size:12px;
+      color: rgba(255,255,255,.80);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:7px 10px;
       border-radius:999px;
-      aspect-ratio:1/1;
-      border:1px solid rgba(255,255,255,.18);
+    }
+    .badge b{color:#fff}
+
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+
+    .coinPanel{display:flex; flex-direction:column; gap:12px}
+    .coinImgWrap{
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.14);
       background:
-        radial-gradient(circle at 30% 25%, rgba(0,255,200,.22), transparent 45%),
-        radial-gradient(circle at 70% 30%, rgba(130,90,255,.35), transparent 50%),
-        rgba(20,20,39,.9);
-      display:flex; flex-direction:column; justify-content:space-between;
-      padding:18px;
+        radial-gradient(600px 300px at 50% 0%, rgba(34,246,255,.14), transparent 60%),
+        radial-gradient(600px 300px at 50% 100%, rgba(255,59,212,.10), transparent 60%),
+        rgba(255,255,255,.03);
+      padding:14px;
       box-shadow: var(--glow);
     }
-    .coinTop,.coinBot{font-size:12px;text-align:center}
-    .coinMid{font-size:34px;font-weight:900;text-align:center}
+    .coinImg{
+      width:100%;
+      border-radius: 14px;
+      display:block;
+      border:1px solid rgba(255,255,255,.12);
+    }
 
-    .notice{
-      margin-top:12px;
+    .ca{
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      color: rgba(255,255,255,.88);
+      background: rgba(0,0,0,.25);
+      border:1px dashed rgba(255,255,255,.22);
+      border-radius: 14px;
       padding:12px;
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.04);
-      border:1px dashed rgba(255,255,255,.2);
-      word-break:break-all;
+    }
+    .tiny{font-size:12px; color: rgba(255,255,255,.65); margin-top:10px}
+
+    section{padding:18px}
+    .sectionTitle{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 950px){ .grid3{grid-template-columns:1fr} }
+
+    .characters{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius:999px;
+      padding:8px 10px;
+      font-weight:800;
+      font-size:12px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .chip .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg, rgba(255,59,212,.9), rgba(34,246,255,.6));
+      box-shadow: 0 0 14px rgba(34,246,255,.35);
     }
 
     footer{
       border-top:1px solid var(--line);
-      padding:20px 18px 40px;
-      display:flex; justify-content:space-between;
+      margin-top: 14px;
+      padding: 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color: rgba(255,255,255,.75);
     }
   </style>
 </head>
 
 <body>
-  <header class="wrap top">
-    <div class="brand">
-      <div class="logo">NEW26</div>
+  <header>
+    <div class="top wrap">
+      <div class="brand">
+        <div class="logo">N26</div>
+        <div>
+          <div class="brandTitle">$NEW26</div>
+          <div class="brandSub">2026 is the New 2016</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#token">Token</a>
+        <a href="#community">Community</a>
+      </nav>
+
+      <div class="ctaRow">
+        <a class="btn primary" href="#buy">Get $NEW26</a>
+        <button class="btn" id="copyBtn">Copy CA</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero">
       <div>
-        <strong>$NEW26</strong><br>
-        <span class="tiny">“2026 is the New 2016”</span>
+        <h1>We’re back again.</h1>
+        <p class="lead">
+          $NEW26 is a neon nostalgia meme coin for the people who know the internet moves in circles.
+          Old vibes. New energy. Same chaos (but make it fun).
+        </p>
+
+        <div class="badgeRow">
+          <div class="badge"><b>Ticker:</b> $NEW26</div>
+          <div class="badge"><b>Chain:</b> Solana (SPL)</div>
+          <div class="badge"><b>Theme:</b> Retro-Future Meme Culture</div>
+        </div>
+
+        <div class="characters">
+          <div class="chip"><span class="dot"></span> 🐸 Meme Mode</div>
+          <div class="chip"><span class="dot"></span> 🚲 Throwback Energy</div>
+          <div class="chip"><span class="dot"></span> 🌴 Neon City Nights</div>
+          <div class="chip"><span class="dot"></span> 🔁 The Loop is Real</div>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#buy">Contract + Links</a>
+          <a class="btn" href="#community">Join the Community</a>
+        </div>
+
+        <div class="tiny">Not financial advice. Meme project. Only risk what you can afford to lose.</div>
+      </div>
+
+      <div class="coinPanel">
+        <div class="coinImgWrap">
+          <!-- Upload your image to GitHub as coin.jpg in the same folder as this index.html -->
+          <img class="coinImg" src="coin.jpg" alt="$NEW26 coin art" />
+        </div>
+
+        <div class="card" id="buy">
+          <div class="sectionTitle">Contract Address (CA)</div>
+          <div class="ca" id="caText">PASTE_YOUR_SOLANA_TOKEN_ADDRESS_HERE</div>
+          <div class="tiny">Tip: use the CA from your official X/Telegram only. Scammers copy everything.</div>
+        </div>
       </div>
     </div>
 
-    <a class="btn primary" href="#buy">Get $NEW26</a>
-  </header>
-
-  <main>
-    <section class="hero wrap">
-      <div>
-        <h1>Welcome to the comeback year.</h1>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="card">
+        <div class="sectionTitle">What is $NEW26?</div>
         <p>
-          $NEW26 is a meme coin for laughs, memories, and good vibes.
-          Old memes. New energy. Same fun.
+          $NEW26 is a meme coin built around one idea: the internet always comes back around.
+          It’s a community for laughs, nostalgia, and the “how is this trending again?” feeling.
         </p>
 
-        <p class="tiny">Chain: Solana (SPL)</p>
-      </div>
-
-      <div>
-        <div class="coinMock">
-          <div class="coinFace">
-            <div class="coinTop">2026 IS THE NEW 2016</div>
-            <div class="coinMid">$NEW26</div>
-            <div class="coinBot">WE’RE BACK AGAIN</div>
+        <div class="grid3">
+          <div class="card">
+            <div class="sectionTitle" style="font-size:18px">Purpose</div>
+            <p>Bring people together through jokes, memories, and good vibes.</p>
           </div>
-        </div>
-
-        <div class="notice" id="buy">
-          <strong>Contract Address:</strong><br>
-          PASTE_YOUR_SOLANA_TOKEN_ADDRESS_HERE
+          <div class="card">
+            <div class="sectionTitle" style="font-size:18px">Mission</div>
+            <p>Make the internet feel fun again—one meme at a time.</p>
+          </div>
+          <div class="card">
+            <div class="sectionTitle" style="font-size:18px">Vibe</div>
+            <p>Neon. Nostalgia. Community. No drama (we try).</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- TOKEN -->
+    <section id="token">
+      <div class="card">
+        <div class="sectionTitle">Token Quick Info</div>
+        <div class="grid3">
+          <div class="card">
+            <div class="sectionTitle" style="font-size:18px">Chain</div>
+            <p>Solana (SPL)</p>
+          </div>
+          <div class="card">
+            <div class="sectionTitle" style="font-size:18px">Ticker</div>
+            <p>$NEW26</p>
+          </div>
+          <div class="card">
+            <div class="sectionTitle" style="font-size:18px">Tagline</div>
+            <p>“2026 is the New 2016”</p>
+          </div>
+        </div>
+
+        <div class="tiny">
+          Real talk: people can start with many coins, but they’ll swap on Solana using SOL/USDC after converting.
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community">
+      <div class="card">
+        <div class="sectionTitle">Community</div>
+        <p>
+          This project lives or dies by the people. If you’re here to laugh, post memes,
+          and build something fun together—you’re in the right place.
+        </p>
+
+        <div class="ctaRow" style="margin-top:12px">
+          <a class="btn primary"
+             href="https://x.com/is202634911?s=21&t=SM3w3HWk5FgD22S-NZp8nA"
+             target="_blank" rel="noreferrer">Follow on X</a>
+
+          <a class="btn"
+             href="https://t.me/+JgcUES4YVShhZmYx"
+             target="_blank" rel="noreferrer">Join Telegram</a>
+        </div>
+
+        <div class="tiny">Next step: paste your real Solana contract address above, then you’re ready to share.</div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <b>$NEW26</b> — 2026 is the New 2016
+        <div class="tiny">Made for fun • Not financial advice</div>
+      </div>
+      <div class="tiny">© <span id="year"></span></div>
+    </footer>
   </main>
 
-  <footer class="wrap">
-    <div>
-      <strong>$NEW26</strong><br>
-      <span class="tiny">Made for fun • Not financial advice</span>
-    </div>
-    <div class="tiny">© 2026</div>
-  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const copyBtn = document.getElementById("copyBtn");
+    const caTextEl = document.getElementById("caText");
+
+    copyBtn.addEventListener("click", async () => {
+      const ca = caTextEl.textContent.trim();
+      if (!ca || ca.includes("PASTE_YOUR_SOLANA_TOKEN_ADDRESS_HERE")) {
+        alert("Paste your real Solana contract address first.");
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(ca);
+        const old = copyBtn.textContent;
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => copyBtn.textContent = old, 1200);
+      } catch {
+        alert("Could not copy. You can manually select and copy the CA.");
+      }
+    });
+  </script>
 </body>
 </html>
